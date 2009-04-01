@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	xmlns:p="http://www.springframework.org/schema/p">
+
+
+	<bean class="com.springsource.samples.restlist.web.ListController" />
+
+	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="mediaTypes">
+			<map>
+				<entry key="json" value="#{list.contentType}"/>
+			</map>
+		</property>
+		<property name="order" value="0"/>
+	</bean>
+
+	<bean name="list" class="com.springsource.samples.restlist.web.ListJsonView"/>
+	
+	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="1"/>
+	
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+		p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" p:order="2" />
+</beans>
