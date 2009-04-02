@@ -14,5 +14,10 @@
 		<li><a href="<c:url value="/lists/${itemList.name}"/>">${itemList.title}</a></li>
 	</c:forEach>
 	</ul>
+	<form name="create-list" method="post">
+		<label for="title">Title</label> <input type="text" id="title" name="title"/>
+		<label for="items">Items</label> <input type="text" id="items" name="items"/>
+		<input type="submit" value="Create"/>
+	</form>
 </body>
 </html>
