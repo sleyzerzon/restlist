@@ -3,64 +3,70 @@
 <wb-module deploy-name="restlist">
 <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
 <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/restlist/lib/com.springsource.org.antlr-3.0.1.jar">
+<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/lib/com.springsource.org.antlr-3.0.1.jar">
 <dependency-type>uses</dependency-type>
 </dependent-module>
-<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/restlist/lib/com.springsource.org.apache.taglibs.standard-1.1.2.jar">
+<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/lib/com.springsource.org.apache.commons.logging-1.1.1.jar">
 <dependency-type>uses</dependency-type>
 </dependent-module>
-<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/restlist/lib/com.springsource.org.objectweb.asm-2.2.3.jar">
+<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/lib/com.springsource.org.apache.taglibs.standard-1.1.2.jar">
 <dependency-type>uses</dependency-type>
 </dependent-module>
-<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/restlist/lib/com.springsource.org.objectweb.asm.commons-2.2.3.jar">
+<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/lib/com.springsource.org.objectweb.asm-2.2.3.jar">
 <dependency-type>uses</dependency-type>
 </dependent-module>
-<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/restlist/lib/jackson-asl-0.9.4.jar">
+<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/lib/com.springsource.org.objectweb.asm.commons-2.2.3.jar">
 <dependency-type>uses</dependency-type>
 </dependent-module>
-<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/restlist/lib/org.springframework.aop-3.0.0.CI-180.jar">
+<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/lib/org.springframework.aop-3.0.0.CI-180.jar">
 <dependency-type>uses</dependency-type>
 </dependent-module>
-<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/restlist/lib/org.springframework.asm-3.0.0.CI-180.jar">
+<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/lib/org.springframework.asm-3.0.0.CI-180.jar">
 <dependency-type>uses</dependency-type>
 </dependent-module>
-<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/restlist/lib/org.springframework.aspects-3.0.0.CI-180.jar">
+<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/lib/org.springframework.aspects-3.0.0.CI-180.jar">
 <dependency-type>uses</dependency-type>
 </dependent-module>
-<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/restlist/lib/org.springframework.beans-3.0.0.CI-180.jar">
+<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/lib/org.springframework.beans-3.0.0.CI-180.jar">
 <dependency-type>uses</dependency-type>
 </dependent-module>
-<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/restlist/lib/org.springframework.context-3.0.0.CI-180.jar">
+<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/lib/org.springframework.context-3.0.0.CI-180.jar">
 <dependency-type>uses</dependency-type>
 </dependent-module>
-<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/restlist/lib/org.springframework.context.support-3.0.0.CI-180.jar">
+<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/lib/org.springframework.context.support-3.0.0.CI-180.jar">
 <dependency-type>uses</dependency-type>
 </dependent-module>
-<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/restlist/lib/org.springframework.core-3.0.0.CI-180.jar">
+<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/lib/org.springframework.core-3.0.0.CI-180.jar">
 <dependency-type>uses</dependency-type>
 </dependent-module>
-<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/restlist/lib/org.springframework.expression-3.0.0.CI-180.jar">
+<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/lib/org.springframework.expression-3.0.0.CI-180.jar">
 <dependency-type>uses</dependency-type>
 </dependent-module>
-<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/restlist/lib/org.springframework.jdbc-3.0.0.CI-180.jar">
+<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/lib/org.springframework.jdbc-3.0.0.CI-180.jar">
 <dependency-type>uses</dependency-type>
 </dependent-module>
-<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/restlist/lib/org.springframework.orm-3.0.0.CI-180.jar">
+<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/lib/org.springframework.orm-3.0.0.CI-180.jar">
 <dependency-type>uses</dependency-type>
 </dependent-module>
-<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/restlist/lib/org.springframework.oxm-3.0.0.CI-180.jar">
+<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/lib/org.springframework.oxm-3.0.0.CI-180.jar">
 <dependency-type>uses</dependency-type>
 </dependent-module>
-<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/restlist/lib/org.springframework.test-3.0.0.CI-180.jar">
+<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/lib/org.springframework.test-3.0.0.CI-180.jar">
 <dependency-type>uses</dependency-type>
 </dependent-module>
-<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/restlist/lib/org.springframework.transaction-3.0.0.CI-180.jar">
+<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/lib/org.springframework.transaction-3.0.0.CI-180.jar">
 <dependency-type>uses</dependency-type>
 </dependent-module>
-<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/restlist/lib/org.springframework.web-3.0.0.CI-180.jar">
+<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/lib/org.springframework.web-3.0.0.CI-180.jar">
 <dependency-type>uses</dependency-type>
 </dependent-module>
-<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/restlist/lib/org.springframework.web.servlet-3.0.0.CI-180.jar">
+<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/lib/org.springframework.web.servlet-3.0.0.CI-180.jar">
+<dependency-type>uses</dependency-type>
+</dependent-module>
+<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/lib/jackson-core-asl-0.9.9-2.jar">
+<dependency-type>uses</dependency-type>
+</dependent-module>
+<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/lib/jackson-mapper-asl-0.9.9-2.jar">
 <dependency-type>uses</dependency-type>
 </dependent-module>
 <property name="context-root" value="restlist"/>

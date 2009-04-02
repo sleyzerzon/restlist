@@ -5,18 +5,19 @@
 	xmlns:p="http://www.springframework.org/schema/p">
 
 
-	<bean class="com.springsource.samples.restlist.web.ListController" />
+	<bean class="com.springsource.samples.restlist.web.BookmarkController" />
 
 	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		<property name="mediaTypes">
 			<map>
-				<entry key="json" value="#{list.contentType}"/>
+				<entry key="json" value="#{bookmarks.contentType}"/>
 			</map>
 		</property>
 		<property name="order" value="0"/>
 	</bean>
 
-	<bean name="list" class="com.springsource.samples.restlist.web.ListJsonView"/>
+
+	<bean name="bookmarks" class="com.springsource.samples.restlist.web.BookmarksJsonView"/>
 	
 	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="1"/>
 	
