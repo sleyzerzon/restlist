@@ -17,7 +17,13 @@
 	</bean>
 
 
-	<bean name="bookmarks" class="com.springsource.samples.restlist.web.BookmarksJsonView"/>
+	<bean name="bookmarks" class="com.springsource.samples.restlist.web.JsonObjectMapperView">
+		<constructor-arg value="bookmarkList"/>
+	</bean>
+	
+	<bean name="bookmark" class="com.springsource.samples.restlist.web.JsonObjectMapperView">
+		<constructor-arg value="bookmark"/>
+	</bean>
 	
 	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="1"/>
 	

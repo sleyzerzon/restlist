@@ -15,7 +15,9 @@ public interface BookmarkRepository {
 	
 	String createBookmark(Bookmark bookmark);
 	
-	String saveBookmark(Bookmark bookmark);
+	String updateBookmark(String key, Bookmark bookmark);
 	
 	Collection<Bookmark> searchBookmarks(String term);
+
+	void deleteBookmark(String key);
 }

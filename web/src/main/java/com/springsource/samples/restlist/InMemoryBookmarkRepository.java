@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentMap;
 
 public class InMemoryBookmarkRepository implements BookmarkRepository {
 
-	private final ConcurrentMap<String, Bookmark> bookmarks = new ConcurrentHashMap<String, Bookmark>();
+	final ConcurrentMap<String, Bookmark> bookmarks = new ConcurrentHashMap<String, Bookmark>();
 	
 	public Bookmark findBookmark(String key) {
 		return this.bookmarks.get(key);
@@ -38,8 +38,16 @@ public class InMemoryBookmarkRepository implements BookmarkRepository {
 
 
 
-	public String saveBookmark(Bookmark bookmark) {
-		return null;
+	public String updateBookmark(String key, Bookmark bookmark) {
+		Bookmark oldValue = this.bookmarks.replace(key, bookmark);
+		if(oldValue == null) {
+			throw new IllegalArgumentException();
+		}
+		return key;
+	}
+	
+	public void deleteBookmark(String key) {
+		this.bookmarks.remove(key);
 	}
 
 	public Collection<Bookmark> searchBookmarks(String term) {
