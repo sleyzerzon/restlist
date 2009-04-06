@@ -53,6 +53,7 @@ public class Console {
 				Bookmark b = new Bookmark();
 				b.setName(commandArgs[1]);
 				b.setDescription(commandArgs[2]);
+				b.setUrl(commandArgs[3]);
 				client.updateBookmark(key, b);
 			} else if(COMMAND_CREATE.equals(command)) {
 				Bookmark b = new Bookmark();
