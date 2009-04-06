@@ -32,10 +32,7 @@ public class SimpleClient {
 	
 	private final RestTemplate template = new RestTemplate();
 	
-	public SimpleClient() {
-		StringHttpMessageConverter converter = new StringHttpMessageConverter();
-		converter.setSupportedMediaTypes(Arrays.asList(JSON_MEDIA_TYPE));
-		
+	public SimpleClient() {		
 		this.template.setMessageConverters(new HttpMessageConverter[]{
 			new BookmarkHttpMessageConverter(),
 			new BookmarkListHttpMessageConverter()
@@ -43,52 +40,28 @@ public class SimpleClient {
 	}
 	
 	public Bookmark findBookmark(String key) {
-		return template.getForObject(BOOKMARK_URI, Bookmark.class, key);
+		return null;
 	}
 	
 	public URI createBookmark(Bookmark bookmark) {
-		return template.postForLocation(BOOKMARKS_URI, bookmark);
+		return null;
 	}
 	
 	public void updateBookmark(String key, Bookmark bookmark) {
-		template.put(BOOKMARK_URI, bookmark, key);
+
 	}
 	
 	public void deleteBookmark(String key) {
-		template.delete(BOOKMARK_URI, key);
+
 	}
 	
 	@SuppressWarnings("unchecked")
 	public List<Bookmark> listBookmarks() {
-		return template.getForObject(BOOKMARKS_URI, List.class);
+		return null;
 	}
 	
 	@SuppressWarnings("unchecked")
-	private static final class BookmarkListHttpMessageConverter extends AbstractHttpMessageConverter<List<Bookmark>> {
-
-
-		public BookmarkListHttpMessageConverter() {
-			super(JSON_MEDIA_TYPE);
-		}
-		
-		@Override
-		protected List<Bookmark> readInternal(Class<List<Bookmark>> clazz,
-				HttpInputMessage inputMessage) throws IOException,
-				HttpMessageNotReadableException {
-			ObjectMapper mapper = new ObjectMapper();
-			return mapper.readValue(inputMessage.getBody(), new TypeReference<List<Bookmark>>(){});
-		}
-
-		@Override
-		protected void writeInternal(List t, HttpOutputMessage outputMessage)
-				throws IOException, HttpMessageNotWritableException {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.writeValue(outputMessage.getBody(), t);
-		}
-
-		public boolean supports(Class<? extends List<Bookmark>> clazz) {
-			return List.class.equals(clazz);
-		}
+	private static final class BookmarkListHttpMessageConverter {
 		
 	}
 }

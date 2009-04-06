@@ -22,39 +22,5 @@ public class BookmarkController {
 
 	@Autowired
 	private BookmarkRepository repository;
-	
-	@RequestMapping(value="/bookmarks", method=RequestMethod.GET)
-	public Collection<Bookmark> bookmarks() {
-		return this.repository.findAll();
-	}
-	
-	@RequestMapping(value="/bookmarks", method=RequestMethod.POST)
-	public void createBookmark(@RequestBody Bookmark bookmark, HttpServletResponse response) throws Exception {
-		this.repository.createBookmark(bookmark);
 
-		response.setHeader("Location", "/bookmarks/" + bookmark.getKey());
-		response.setStatus(201);
-	}
-	
-	@RequestMapping(value="/bookmarks/{key}", method=RequestMethod.GET)
-	public ModelAndView findBookmark(@PathVariable String key) throws Exception {
-		Bookmark bookmark = this.repository.findBookmark(key);
-		return new ModelAndView("bookmark", "bookmark", bookmark);
-		
-	}
-	
-	@RequestMapping(value="/bookmarks/{key}", method=RequestMethod.PUT)
-	public ModelAndView updateBookmark(@PathVariable String key, @RequestBody Bookmark bookmark) throws Exception {
-		this.repository.updateBookmark(key, bookmark);
-		return new ModelAndView("bookmark", "bookmark", bookmark);
-		
-	}
-	
-	@RequestMapping(value="/bookmarks/{key}", method=RequestMethod.DELETE)
-	public View deleteBookmark(@PathVariable String key) {
-		this.repository.deleteBookmark(key);
-		RedirectView view = new RedirectView("/bookmarks", true);
-		view.setHttp10Compatible(false);
-		return view;
-	}
 }
