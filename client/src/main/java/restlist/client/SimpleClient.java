@@ -18,12 +18,13 @@ import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
 import com.springsource.samples.restlist.Bookmark;
+import com.springsource.samples.restlist.web.BookmarkHttpMessageConverter;
 
 public class SimpleClient {
 
-	private static final MediaType JSON_MEDIA_TYPE = new MediaType("application", "json");
+	static final MediaType JSON_MEDIA_TYPE = new MediaType("application", "json");
 	
-	private static final String BASE_URI = "http://localhost:8080/restlist";
+	private static final String BASE_URI = "http://localhost:8081/restlist";
 	
 	private static final String BOOKMARKS_URI = BASE_URI + "/bookmarks";
 	
@@ -60,33 +61,6 @@ public class SimpleClient {
 	@SuppressWarnings("unchecked")
 	public List<Bookmark> listBookmarks() {
 		return template.getForObject(BOOKMARKS_URI, List.class);
-	}
-	
-	private static final class BookmarkHttpMessageConverter extends AbstractHttpMessageConverter<Bookmark> {
-
-		public BookmarkHttpMessageConverter() {
-			super(JSON_MEDIA_TYPE);
-		}
-		
-		@Override
-		protected Bookmark readInternal(Class<Bookmark> clazz,
-				HttpInputMessage inputMessage) throws IOException,
-				HttpMessageNotReadableException {
-			ObjectMapper mapper = new ObjectMapper();
-			return mapper.readValue(inputMessage.getBody(), Bookmark.class);
-		}
-
-		@Override
-		protected void writeInternal(Bookmark t, HttpOutputMessage outputMessage)
-				throws IOException, HttpMessageNotWritableException {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.writeValue(outputMessage.getBody(), t);
-		}
-
-		public boolean supports(Class<? extends Bookmark> clazz) {
-			return Bookmark.class.equals(clazz);
-		}
-		
 	}
 	
 	@SuppressWarnings("unchecked")

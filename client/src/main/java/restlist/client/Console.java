@@ -13,9 +13,11 @@ public class Console {
 	private static final String COMMAND_FIND = "find";
 	private static final String COMMAND_UPDATE = "update";
 	private static final String COMMAND_DELETE = "delete";
+	private static final Object COMMAND_CREATE = "create";
 	
 	public static void main(String[] args) throws Exception {
 		SimpleClient client = new SimpleClient();
+		
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		for(;;) {
 			String line = reader.readLine();
@@ -52,6 +54,12 @@ public class Console {
 				b.setName(commandArgs[1]);
 				b.setDescription(commandArgs[2]);
 				client.updateBookmark(key, b);
+			} else if(COMMAND_CREATE.equals(command)) {
+				Bookmark b = new Bookmark();
+				b.setName(commandArgs[0]);
+				b.setDescription(commandArgs[1]);
+				b.setUrl(commandArgs[2]);
+				client.createBookmark(b);
 			}
 			
 			else {

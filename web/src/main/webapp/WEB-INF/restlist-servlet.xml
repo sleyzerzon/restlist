@@ -9,7 +9,13 @@
 
 	<context:component-scan base-package="com.springsource.samples.restlist"/>
 
-	<!--  <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<bean class="com.springsource.samples.restlist.web.BookmarkHttpMessageConverter"/>
+		</property>
+	</bean>
+	
+	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		<property name="mediaTypes">
 			<map>
 				<entry key="json" value="#{bookmarks.contentType}"/>
@@ -27,7 +33,7 @@
 		<constructor-arg value="bookmark"/>
 	</bean>
 	
-	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="1"/>-->
+	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="1"/>
 	
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
