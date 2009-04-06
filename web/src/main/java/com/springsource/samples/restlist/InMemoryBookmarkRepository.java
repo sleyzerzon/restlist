@@ -7,9 +7,19 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
-public class InMemoryBookmarkRepository implements BookmarkRepository {
+import org.springframework.stereotype.Component;
 
-	final ConcurrentMap<String, Bookmark> bookmarks = new ConcurrentHashMap<String, Bookmark>();
+@Component
+final class InMemoryBookmarkRepository implements BookmarkRepository {
+
+	private final ConcurrentMap<String, Bookmark> bookmarks = new ConcurrentHashMap<String, Bookmark>();
+	
+	public InMemoryBookmarkRepository() {
+		createBookmark(new Bookmark("Google", "A search engine", "http://www.google.com"));
+		createBookmark(new Bookmark("The Register", "Industry news", "http://www.theregister.co.uk"));
+		createBookmark(new Bookmark("Fail Blog", "A fun blog", "http://failblog.org"));
+		System.out.println("Creating");
+	}
 	
 	public Bookmark findBookmark(String key) {
 		return this.bookmarks.get(key);
@@ -29,7 +39,6 @@ public class InMemoryBookmarkRepository implements BookmarkRepository {
 		String key = generateKey(bookmark);
 		if(this.bookmarks.putIfAbsent(key, bookmark) == null)  {
 			bookmark.setKey(key);
-			System.out.println(key);
 			return key;
 		} else {
 			throw new IllegalArgumentException();

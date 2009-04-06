@@ -6,6 +6,7 @@ import java.util.Collection;
 import javax.servlet.http.HttpServletResponse;
 
 import org.codehaus.jackson.map.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,19 +15,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.springsource.samples.restlist.Bookmark;
 import com.springsource.samples.restlist.BookmarkRepository;
-import com.springsource.samples.restlist.InMemoryBookmarkRepository;
 
 @Controller
 public class BookmarkController {
 
-	private final BookmarkRepository repository = new InMemoryBookmarkRepository();
+	@Autowired
+	private BookmarkRepository repository;
 	
-	public BookmarkController() {
-		this.repository.createBookmark(new Bookmark("Google", "A search engine", "http://www.google.com"));
-		this.repository.createBookmark(new Bookmark("The Register", "Industry news", "http://www.theregister.co.uk"));
-		this.repository.createBookmark(new Bookmark("Fail Blog", "A fun blog", "http://failblog.org"));
-		
-	}
 	@RequestMapping(value="/bookmarks", method=RequestMethod.GET)
 	public Collection<Bookmark> bookmarks() {
 		return this.repository.findAll();
@@ -51,7 +46,6 @@ public class BookmarkController {
 	
 	@RequestMapping(value="/bookmarks/{key}", method=RequestMethod.GET)
 	public ModelAndView findBookmark(@PathVariable String key) throws Exception {
-		System.out.println("findBookmark");
 		Bookmark bookmark = this.repository.findBookmark(key);
 		return new ModelAndView("bookmark", "bookmark", bookmark);
 		
@@ -66,7 +60,6 @@ public class BookmarkController {
 	
 	@RequestMapping(value="/bookmarks/{key}", method=RequestMethod.DELETE)
 	public void deleteBookmark(@PathVariable String key) {
-		System.out.println("deleting");
 		this.repository.deleteBookmark(key);
 	}
 }

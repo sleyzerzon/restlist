@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:p="http://www.springframework.org/schema/p">
 
 
-	<bean class="com.springsource.samples.restlist.web.BookmarkController" />
+	<context:component-scan base-package="com.springsource.samples.restlist"/>
 
-	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+	<!--  <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		<property name="mediaTypes">
 			<map>
 				<entry key="json" value="#{bookmarks.contentType}"/>
@@ -25,7 +27,7 @@
 		<constructor-arg value="bookmark"/>
 	</bean>
 	
-	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="1"/>
+	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="1"/>-->
 	
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
