@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.View;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.springsource.samples.restlist.Bookmark;
 import com.springsource.samples.restlist.BookmarkRepository;
@@ -42,13 +44,17 @@ public class BookmarkController {
 	}
 	
 	@RequestMapping(value="/bookmarks/{key}", method=RequestMethod.PUT)
-	public void updateBookmark(@PathVariable String key, @RequestBody Bookmark bookmark) throws Exception {
+	public ModelAndView updateBookmark(@PathVariable String key, @RequestBody Bookmark bookmark) throws Exception {
 		this.repository.updateBookmark(key, bookmark);
+		return new ModelAndView("bookmark", "bookmark", bookmark);
 		
 	}
 	
 	@RequestMapping(value="/bookmarks/{key}", method=RequestMethod.DELETE)
-	public void deleteBookmark(@PathVariable String key) {
+	public View deleteBookmark(@PathVariable String key) {
 		this.repository.deleteBookmark(key);
+		RedirectView view = new RedirectView("/bookmarks", true);
+		view.setHttp10Compatible(false);
+		return view;
 	}
 }

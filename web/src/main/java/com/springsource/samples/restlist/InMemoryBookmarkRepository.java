@@ -51,7 +51,8 @@ final class InMemoryBookmarkRepository implements BookmarkRepository {
 		Bookmark oldValue = this.bookmarks.replace(key, bookmark);
 		if(oldValue == null) {
 			throw new IllegalArgumentException();
-		}
+		} 
+		bookmark.setKey(key);
 		return key;
 	}
 	
